@@ -5,10 +5,12 @@ class Welcome extends React.Component {
     return (
       <div>
         {/* Default name: Pippo */}
-        <p>Welcome, {this.props.name ? this.props.name : "Pippo" }!</p>
+        <p>Welcome, {this.props.name }!</p>
       </div>
     );
   }
 }
+
+Welcome.defaultProps = { name: "Pippo" };
 
 export default Welcome;
