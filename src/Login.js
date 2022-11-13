@@ -23,12 +23,23 @@ class Login extends React.Component {
     this._formRef.current.elements.remember.checked = true;
   };
 
+  componentDidMount() {
+    this.nameInput.focus();
+  }
+
   render() {
     return (
       <div>
         <h1>UNCONTROLLED FORM</h1>
         <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
-          <input name="username" autoFocus />
+          {/* Basterebbe mettere un semplice autoFocus come attributo ma immagino
+          che ai fini dell'esercizio si voglia l'uso del ref */}
+          <input
+            name="username"
+            ref={(input) => {
+              this.nameInput = input;
+            }}
+          />
           <input name="password" type="password" />
           <input name="remember" type="checkbox" />
 
