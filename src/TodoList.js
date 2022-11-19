@@ -8,6 +8,7 @@ class TodoList extends React.Component {
       id: 0,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetTodos = this.resetTodos.bind(this);
   }
 
   handleSubmit(e) {
@@ -27,6 +28,13 @@ class TodoList extends React.Component {
     e.target[0].value = "";
   }
 
+  resetTodos() {
+    this.setState(() => ({
+      todos: [],
+      id: 0,
+    }));
+  }
+
   render() {
     return (
       <div>
@@ -35,6 +43,7 @@ class TodoList extends React.Component {
           <input type="text" name="todo" />
           <input type="submit" value="Add Todo" />
         </form>
+        <button onClick={this.resetTodos}>Reset</button>
         <ul>
           {this.state.todos.map((todo) => (
             <li key={todo.id}>{todo.label}</li>
