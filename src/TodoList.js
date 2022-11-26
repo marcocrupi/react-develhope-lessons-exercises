@@ -9,7 +9,6 @@ class TodoList extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetTodos = this.resetTodos.bind(this);
-    this.onDelete = this.onDelete.bind(this);
   }
 
   handleSubmit(e) {
@@ -36,14 +35,6 @@ class TodoList extends React.Component {
     }));
   }
 
-  onDelete(id) {
-    const list = [...this.state.todos];
-    const updatedList = list.filter((todos) => todos.id !== id);
-    this.setState({
-      todos: updatedList,
-    });
-  }
-
   render() {
     return (
       <div>
@@ -55,10 +46,7 @@ class TodoList extends React.Component {
         <button onClick={this.resetTodos}>Reset</button>
         <ul>
           {this.state.todos.map((todo) => (
-            <li key={todo.id}>
-              {todo.label}
-              <button onClick={() => this.onDelete(todo.id)}>remove</button>
-            </li>
+            this.props.render(todo)
           ))}
         </ul>
       </div>

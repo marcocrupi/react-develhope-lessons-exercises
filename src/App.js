@@ -5,12 +5,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList />
+        <TodoList
+          render={(list) => {
+            return <li key={list.id}>{list.label}</li>;
+          }}
+        />
       </div>
     );
   }
 }
 
 export default App;
-
-
