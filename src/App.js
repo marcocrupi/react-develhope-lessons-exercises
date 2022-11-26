@@ -1,14 +1,14 @@
 import React from "react";
 import Container from "./Container";
-
-const title = "ciao mondo";
+import ChildComponent from "./ChildComponent";
 
 class App extends React.Component {
-  
   render() {
     return (
       <div>
-        <Container title={title} />
+        <Container title="title prop">
+          <ChildComponent></ChildComponent>
+        </Container>
       </div>
     );
   }
