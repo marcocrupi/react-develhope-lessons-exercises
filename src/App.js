@@ -7,12 +7,16 @@ class App extends React.Component {
     return (
       <div>
         <Container>
-          <MouseTracker render={position => {
-            const [x,y] = position;
-            return <div>The current position is {x},{y} </div>;
-          }}>
-            
-          </MouseTracker>
+          <MouseTracker
+            render={(position) => {
+              const [x, y] = position;
+              return (
+                <div>
+                  The current position is {x},{y}{" "}
+                </div>
+              );
+            }}
+          ></MouseTracker>
         </Container>
       </div>
     );
