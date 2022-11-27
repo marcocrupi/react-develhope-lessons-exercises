@@ -8,8 +8,7 @@ export class DisplayLanguage extends React.Component {
         {(language) => {
           return (
             <div>
-              
-              <p>{language}</p>
+              <h1>{language}</h1>
             </div>
           );
         }}
