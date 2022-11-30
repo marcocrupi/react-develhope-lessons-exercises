@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Counter } from "./Counter";
 import ShowGitHubUser from "./ShowGitHubUser";
 import { Welcome } from "./Welcome";
+import HelloWorld from "./HelloWorld";
 
 function App() {
   return (
@@ -11,15 +12,14 @@ function App() {
         <div>
           <Link to="/">Home</Link>
           <Link to="/counter">Counter</Link>
-          <Link to="/users/otnd">Username</Link>
+          <Link to="/hello">Hello World</Link>
+          <Link to="/users/marcocrupi">Username</Link>
         </div>
         <br />
         <Routes>
           <Route path="/" element={<Welcome name="Marco" />} />
-          <Route
-            path="/counter"
-            element={<Counter />}
-          />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/hello" element={<HelloWorld />} />
           <Route path="users/:username" element={<ShowGitHubUser />} />
         </Routes>
       </BrowserRouter>
