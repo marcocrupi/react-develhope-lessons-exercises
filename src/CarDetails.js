@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const CarDetails = ({
-  initialData = { model: "Chevrolet Impala", year: "1967", color: "black" },
+  initialData = { model: "Fiat 500", year: "2008", color: "yellow" },
 }) => {
   const inputRef = useRef(null);
   const [isChanged, setStatus] = useState(false);
