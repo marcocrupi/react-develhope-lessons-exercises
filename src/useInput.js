@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useInput(data = { user: "", password: "", remember: false }) {
+export function useInput(data = { user: "", password: "" }) {
   const [inputData, setInput] = useState(data);
 
   const input = (e) =>
