@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { LanguageContext } from "./LanguageContext";
+import { DisplayLanguage } from "./DisplayLanguage";
 
 function App() {
+  // Guida per passare valori multipli in useContext: https://progressivewebninja.com/how-to-pass-multiple-values-in-react-context/
+
+  const [language, setLanguage] = useState("en");
+
+  function handleChangeLanguage(event) {
+    setLanguage(event.target.value);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <select value={language} onChange={handleChangeLanguage}>
+        <option value="en">English</option>
+        <option value="it">Italian</option>
+      </select>
+      <LanguageContext.Provider value={language}>
+        <DisplayLanguage></DisplayLanguage>
+      </LanguageContext.Provider>
     </div>
   );
 }
